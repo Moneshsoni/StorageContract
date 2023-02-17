@@ -2,7 +2,7 @@
 
 // WE use specific version using ^0.8.0
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.9;
 contract SimpleStorage{
     struct People{
         uint favoriteNumber;
