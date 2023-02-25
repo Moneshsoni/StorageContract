@@ -32,7 +32,7 @@ describe("Fund me", function () {
         const [sender] = await ethers.getSigners();
         let eth_value = ethers.utils.parseEther("2");
         await expect( fundme.connect(sender).fund({value:eth_value}));
-        
+
         // console.log(fundme);
     })
 
@@ -42,10 +42,9 @@ describe("Fund me", function () {
             await fundme.fund({value:sendValue});
         });
 
-        it("Withdraw eth from a single founders",async function(){
-            const startingFundBalance = await fundme.provider.getBalance(fundme.address);
-           
-        })
+        // it("Withdraw eth from a single founders",async function(){
+        //     let sendValue = ethers.utils.parseEther("3");
+  
         
     })
 
