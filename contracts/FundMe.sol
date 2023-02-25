@@ -4,17 +4,33 @@
 //SPDX-License-Identifier: MIT
 pragma solidity ^0.8.9;
 import "./PriceConvertor.sol";
+error FundMe__Notowenr();
+
+/**
+ * @title A contract for fund me learning
+ * @author Monesh soni
+ * @notice This contract is imlement for learning purposes.
+ */
 contract FundMe{
+
+    //Type declarations
     using PriceConverter for uint256;
+    //state variabales
     uint public MINIMUM_USD = 50 * 1e18;
     address public owner;
     address[] public funders;
+
+    uint public number;
     mapping(address=>uint256) public addressToAmountFunded;
 
     constructor(){
         owner = msg.sender;
     }
 
+    function setNumber(uint _number)public{
+        number = _number;
+    }
+    
     function fund() public payable{
         // Want to be able to set a minimum fund amount in USD
         // How do we send ETH to this contract.
@@ -52,17 +68,13 @@ contract FundMe{
         require(callSuccess, "Call transfer failed"); 
   
     }
-    error YouAreNotOwner();
     modifier onlyOwner{
         if(msg.sender!=owner){
-            revert YouAreNotOwner();
+            revert FundMe__Notowenr();
         }
         _;
     }
-// send money to contract recieve functions
-
-
-    
+// send money to contract recieve functions  
 }
 
 
